@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.care.root.mybatis.members.MembersMapper">
+	<resultMap type="com.care.root.members.dto.MembersDTO" id="members">
+		<id property="mid" column="mid"/>
+		<result property="mpw" column="mpw"/>
+		<result property="mnick" column="mnick"/>
+		<result property="maddr" column="maddr"/>
+		<result property="mage" column="mage"/>
+		<result property="mgender" column="mgender"/>
+		<result property="msession_id" column="msession_id"/>
+	</resultMap>
+	<select id="userCheck" resultMap="members">
+		select * from members where mid = #{mid}
+	</select>
+	<insert id="register"> 
+		insert into members(mid, mpw, mnick, maddr, mage, mgender)
+		values(#{mid},#{mpw},#{mnick},#{maddr},#{mage},#{mgender})
+	</insert>
+	
+	
+	
+</mapper>
